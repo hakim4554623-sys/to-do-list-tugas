@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskTracker XI PPLG 2</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- Header Compact -->
+        <div class="header-compact">
+            <div class="header-text">
+                <h1>TaskTracker 🚀</h1>
+                <p>XI PPLG 2</p>
+            </div>
+            <div class="header-time">
+                <span id="greetingText">Halo!</span>
+                <strong id="realtimeClock">00:00 WIB</strong>
+            </div>
+        </div>
+
+        <!-- Statistik Box 2x2 -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3 class="text-primary"><span id="statTotal">0</span></h3>
+                <p>Total</p>
+            </div>
+            <div class="stat-card">
+                <h3 class="text-success"><span id="statCompleted">0</span></h3>
+                <p>Selesai</p>
+            </div>
+            <div class="stat-card">
+                <h3 class="text-warning"><span id="statActive">0</span></h3>
+                <p>Aktif</p>
+            </div>
+            <div class="stat-card stat-overdue">
+                <h3 class="text-danger"><span id="statOverdue">0</span></h3>
+                <p class="text-danger">Terlambat</p>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-header">
+                <span class="progress-title">Progress Tugas</span>
+                <span class="progress-text" id="progressText">0%</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <!-- Pencarian & Sorting -->
+        <div class="action-bar">
+            <div class="search-wrapper">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="searchInput" class="search-box" placeholder="Cari tugas...">
+            </div>
+            <select id="sortSelect" class="sort-box">
+                <option value="nearest">⏰ Terdekat</option>
+                <option value="farthest">📅 Terjauh</option>
+                <option value="newest">✨ Terbaru</option>
+            </select>
+        </div>
+
+        <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="all">Semua</button>
+            <button class="filter-btn" data-filter="active">Aktif</button>
+            <button class="filter-btn" data-filter="completed">Selesai</button>
+        </div>
+
+        <!-- Accordion Tambah Tugas -->
+        <details id="addDetails">
+            <summary class="btn-tambah-summary">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                Tambah Tugas Baru
+            </summary>
+            <div class="input-group">
+                <input type="text" id="taskName" placeholder="Nama tugas...">
+                <div class="input-row">
+                    <select id="taskSubject">
+                        <option value="PPLG">💻 PPLG</option>
+                        <option value="Sejarah">📜 Sejarah</option>
+                        <option value="Bahasa Indonesia">🇮🇩 B. Indonesia</option>
+                        <option value="Bahasa Inggris">🇬🇧 B. Inggris</option>
+                        <option value="Matematika">📐 Matematika</option>
+                        <option value="Lainnya">📌 Lainnya</option>
+                    </select>
+                    <select id="taskPriority">
+                        <option value="Tinggi">🔴 Prioritas Tinggi</option>
+                        <option value="Sedang" selected>🟡 Prioritas Sedang</option>
+                        <option value="Rendah">🟢 Prioritas Rendah</option>
+                    </select>
+                </div>
+                <input type="date" id="taskDeadline">
+                <button class="btn-save" id="btnAdd">Simpan Tugas</button>
+            </div>
+        </details>
+
+        <!-- Tugas Terdekat -->
+        <div id="nearestTaskContainer" class="nearest-container">
+            <!-- Render via JS -->
+        </div>
+
+        <!-- Daftar Tugas -->
+        <h3 class="section-title">DAFTAR TUGAS</h3>
+        <ul class="task-list" id="taskList">
+            <!-- Render via JS -->
+        </ul>
+
+    </div>
+
+    <!-- Container untuk Notifikasi -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="note.js"></script>
+</body>
+</html>
